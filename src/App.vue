@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import { onMounted, Ref, ref } from 'vue';
 import { PixiEngine } from './systems/engine';
+import * as PIXI from 'pixi.js';
 
-const canvas: Ref<Node | null> = ref(null);
+const canvas: Ref<HTMLCanvasElement | null> = ref(null);
 
 onMounted(async () => {
-    await PixiEngine.init(800, 600);
-    const canvasInfo = PixiEngine.getCanvas();
-    canvas.value?.appendChild(canvasInfo);
+    const CANVAS = canvas.value;
+    if (CANVAS !== null) {
+        await PixiEngine.init({ width: 800, height: 600, backgroundColor: 0x2980b9, view: <PIXI.ICanvas>CANVAS });
+    }
 });
 </script>
 
 <template>
     <div>
-        <div ref="canvas"></div>
+        <canvas ref="canvas"></canvas>
     </div>
 </template>
 

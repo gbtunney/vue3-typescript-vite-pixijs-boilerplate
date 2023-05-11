@@ -1,17 +1,15 @@
 import * as PIXI from 'pixi.js';
 import { MainScene } from '../scenes/main';
 import { Controller } from './controller';
-
 let PixiApp: PIXI.Application;
 
+export type IApplicationOptions = ConstructorParameters<typeof PIXI.Application>[0];
 export const PixiEngine = {
-    init(width: number, height: number) {
+    init(options: IApplicationOptions) {
         if (typeof PixiApp !== 'undefined') {
             PixiApp.destroy();
         }
-
-        PixiApp = new PIXI.Application({ width, height, backgroundColor: 0x2980b9 });
-
+        PixiApp = new PIXI.Application(options);
         // Controllers
         Controller.init();
 

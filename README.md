@@ -12,7 +12,7 @@ npm run dev
 
 ## What is Included
 
-* Vue Hooked in with Pixi.js
-* Basic Player Movement (WASD)
-* Basic Player Sprite (It's a Ball)
-* A Simple Scene Loader
+-   Vue Hooked in with Pixi.js
+-   Basic Player Movement (WASD)
+-   Basic Player Sprite (It's a Ball)
+-   A Simple Scene Loader
